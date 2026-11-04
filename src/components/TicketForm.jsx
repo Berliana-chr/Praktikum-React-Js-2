@@ -39,16 +39,16 @@ function TicketForm() {
   useEffect(() => {
     fetch("/categories.json")
       .then((response) => {
-        if (!response.ok) {
+        if (!response.ok) { //Kalau gagal diambil, lempar error
           throw new Error("Gagal mengambil data kategori.");
         }
 
-        return response.json();
+        return response.json(); //Mengubah isi file menjadi data JavaScript
       })
       .then((data) => {
-        setCategories(data);
+        setCategories(data);  //menyimpan data ke state jadi dropdown ikut keiisi
       })
-      .catch((error) => {
+      .catch((error) => {   //tampil error di console kl ada yang gagal
         console.error("Terjadi kesalahan:", error);
       });
   }, []);
@@ -250,9 +250,7 @@ function TicketForm() {
       focusFirstError(validationErrors);
       return;
     }
-
     addTicket(formData);
-
     setSuccessMessage("Ticket berhasil dibuat.");
 
     setFormData({
@@ -379,7 +377,7 @@ function TicketForm() {
               <option value="Low">Low</option>
               <option value="Medium">Medium</option>
               <option value="High">High</option>
-              <option calue="Critical">Critical</option>    //c
+              <option value="Critical">Critical</option>    //c
             </select>
             {errors.priority && (
               <div className="invalid-feedback">{errors.priority}</div>
