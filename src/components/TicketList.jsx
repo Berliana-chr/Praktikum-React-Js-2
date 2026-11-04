@@ -100,7 +100,7 @@ function TicketList() {
 
       <div className="card-body">
         <div className="row g-2 mb-3">
-          <div className="col-md-5">
+          <div className="col-md-3">
             <input
               type="text"
               className="form-control"
@@ -112,7 +112,7 @@ function TicketList() {
             />
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-3">
             <select
               className="form-select"
               value={categoryFilter}
